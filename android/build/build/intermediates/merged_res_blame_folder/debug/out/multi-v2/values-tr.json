@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.godot.game-mergeDebugResources-9:/values-tr/values-tr.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\inflo\\.gradle\\caches\\transforms-3\\086694f904f7332915774462ffe124fb\\transformed\\core-1.2.0\\res\\values-tr\\values-tr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "130",
+                        "endColumns": "100",
+                        "endOffsets": "226"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\inflo\\Documents\\godot-workspace\\custom-build-test-VR\\android\\build\\res\\values-tr\\godot_project_name_string.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "1",
+                        "startOffsets": "112",
+                        "endColumns": "71",
+                        "endOffsets": "182"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "74",
+                        "endOffsets": "125"
+                    }
+                }
+            ]
+        }
+    ]
+}

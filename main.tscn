@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddda3ajk8l0yb"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_redhj"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="2_fob5n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdj8a"]
+albedo_color = Color(0.262745, 0.435294, 0.337255, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vj2d3"]
+material = SubResource("StandardMaterial3D_fdj8a")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_brech"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_no3u1"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_msxbh"]
+
+[sub_resource type="Sky" id="Sky_ium6b"]
+sky_material = SubResource("PhysicalSkyMaterial_msxbh")
+
+[sub_resource type="Environment" id="Environment_v1uyu"]
+background_mode = 2
+sky = SubResource("Sky_ium6b")
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_redhj")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_vj2d3")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+mesh = SubResource("BoxMesh_brech")
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("2_fob5n")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+mesh = SubResource("BoxMesh_no3u1")
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("2_fob5n")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v1uyu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.393798, 0.919197, 0, -0.919197, 0.393798, 0, 1.62492, 0)
